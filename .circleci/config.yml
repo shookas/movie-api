@@ -7,5 +7,8 @@ jobs:
 
     steps:
       - checkout
+      - run: ls 
       - run: make install
+      - run: ls 
+      - run: cd ./movies && ls 
       - run: make test
