@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "movies",
+		"_postman_id": "79d2dd48-dce1-ce89-1d23-87e288ed263e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable('TOKEN', jsonData.token)",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:3000/auth",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"basic-thomas\",\n    \"password\": \"sR-_pcoow-27-6PAwCD8\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "movies",
+			"request": {
+				"url": "localhost:3100/v1/movies",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{TOKEN}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"basic-thomas\",\n    \"password\": \"sR-_pcoow-27-6PAwCD8\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "movies",
+			"request": {
+				"url": "localhost:3100/v1/movies",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{TOKEN}}",
+						"description": ""
+					},
+					{
+						"key": "title",
+						"value": "star wars",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "star",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

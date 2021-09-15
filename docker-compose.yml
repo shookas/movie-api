@@ -1,0 +1,38 @@
+version: "2.0"
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: movies
+    ports:
+      - 27017:27017
+  movies-service:
+    command: node dist/index.js
+    build:
+      context: ./movies
+      dockerfile: Dockerfile
+    ports:
+      - 3100:3100
+    volumes:
+      - ./movies/:/app/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      APP_SECRET: secret
+      MONGO_IP: mongo
+      MONGO_PORT: 27017
+      MONGO_DB_NAME: movies
+      OMD_API_KEY: ${OMD_API_KEY}
+      OMD_API_I: ${OMD_API_I}
+
+  auth-service:
+    command: node src/server.js
+    build:
+      context: ./auth
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./auth/:/app/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
