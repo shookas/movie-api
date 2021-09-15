@@ -10,5 +10,6 @@ jobs:
       - run: ls 
       - run: make install
       - run: ls 
+      - checkout
       - run: cd ./movies && ls 
       - run: make test
