@@ -10,12 +10,12 @@ services:
   movies-service:
     command: node dist/index.js
     build:
-      context: ./movies
+      context: ./movies-api
       dockerfile: Dockerfile
     ports:
       - 3100:3100
     volumes:
-      - ./movies/:/app/
+      - ./movies-api/:/app/
     environment:
       JWT_SECRET: ${JWT_SECRET}
       APP_SECRET: secret

@@ -7,6 +7,6 @@ jobs:
 
     steps:
       - checkout
-      - run: ls 
       - run: make install
-      - run: npm run test
+      - run: make lint
+      - run: make test
