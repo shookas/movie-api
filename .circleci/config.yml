@@ -8,5 +8,5 @@ jobs:
     steps:
       - checkout
       - run: cd movies-api && npm ci
-      - run: cd movies-api && npm lint
-      - run: cd movies-api && npm test
+      - run: cd movies-api && npm run lint
+      - run: cd movies-api && npm run test
