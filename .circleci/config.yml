@@ -3,11 +3,10 @@ jobs:
   build:
     docker:
       - image: circleci/node:7.10
-    working_directory: ~/movies
+    working_directory: ~/repo/movies
 
     steps:
       - checkout
-        path: ~/movies
 
       # Download and cache dependencies
       - restore_cache:
