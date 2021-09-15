@@ -9,7 +9,4 @@ jobs:
       - checkout
       - run: ls 
       - run: make install
-      - run: ls 
-      - checkout
-      - run: cd ./movies && ls 
-      - run: make test
+      - run: npm run test
