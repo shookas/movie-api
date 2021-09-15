@@ -7,6 +7,6 @@ jobs:
 
     steps:
       - checkout
-      - run: make install
-      - run: make lint
-      - run: make test
+      - run: cd movies-api && npm ci
+      - run: cd movies-api && npm lint
+      - run: cd movies-api && npm test
