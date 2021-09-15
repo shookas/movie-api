@@ -1,7 +1,7 @@
 install:
 	echo [install] services
-	cd auth && npm i
 	cd movies && npm i
+	cd auth && npm i
 lint:
 	echo [lint] services
 	cd movies && npm run lint
